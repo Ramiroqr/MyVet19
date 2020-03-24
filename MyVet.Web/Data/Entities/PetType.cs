@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace MyVet.Web.Data.Entities
 {
-    public class Owner
+    public class PetType
     {
         public int Id { get; set; }
 
-        public User User{ get; set; }
+        [Display(Name = "Pet Type")]
+        [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
+        public string Name { get; set; }
 
         public ICollection<Pet> Pets { get; set; }
-
-        public ICollection<Agenda> Agendas { get; set; }
     }
 }
